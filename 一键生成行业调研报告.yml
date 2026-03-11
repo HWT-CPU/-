@@ -1,0 +1,1269 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 一键生成行业调研报告
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/firecrawl:0.0.3@d668b3ad841e8bb27f735a8500568e44f9673156d1d4db72c304d0437bf80fd7
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/email:0.0.7@6c3856490275f3440619fabfdc54f3bd29bad8959e29996452277b9c3b0c5e9b
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/google:0.0.9@d360bbc433f39be1b11909cb9c32e6be4a17ea06af083f9e1c7613bb802bf517
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.3@5a7f82fa86e28332ad51941d0b491c1e8a38ead539656442f7bf4c6129cd15fa
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1741069960721-source-1741070282146-target
+      selected: false
+      source: '1741069960721'
+      sourceHandle: source
+      target: '1741070282146'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1741070282146-source-1741071296129-target
+      selected: false
+      source: '1741070282146'
+      sourceHandle: source
+      target: '1741071296129'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1741071296129-source-1741071594000-target
+      selected: false
+      source: '1741071296129'
+      sourceHandle: source
+      target: '1741071594000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1741071594000'
+        sourceType: iteration-start
+        targetType: code
+      id: 1741071594000start-source-1741071711045-target
+      selected: false
+      source: 1741071594000start
+      sourceHandle: source
+      target: '1741071711045'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1741071594000'
+        sourceType: code
+        targetType: tool
+      id: 1741071711045-source-1741082312033-target
+      selected: false
+      source: '1741071711045'
+      sourceHandle: source
+      target: '1741082312033'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1741071594000'
+        sourceType: tool
+        targetType: llm
+      id: 1741082312033-source-1741141447337-target
+      selected: false
+      source: '1741082312033'
+      sourceHandle: source
+      target: '1741141447337'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1741071594000-source-1741143467490-target
+      selected: false
+      source: '1741071594000'
+      sourceHandle: source
+      target: '1741143467490'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1741143467490-source-1741147077664-target
+      selected: false
+      source: '1741143467490'
+      sourceHandle: source
+      target: '1741147077664'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: parameter-extractor
+      id: 1741147077664-source-1741155088826-target
+      selected: false
+      source: '1741147077664'
+      sourceHandle: source
+      target: '1741155088826'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: iteration
+      id: 1741155088826-source-1741155658950-target
+      selected: false
+      source: '1741155088826'
+      sourceHandle: source
+      target: '1741155658950'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1741155658950'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1741155658950start-source-1741155861725-target
+      selected: false
+      source: 1741155658950start
+      sourceHandle: source
+      target: '1741155861725'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1741155658950-source-1755099701102-target
+      selected: false
+      source: '1741155658950'
+      sourceHandle: source
+      target: '1755099701102'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1755099701102-source-1741159428829-target
+      source: '1755099701102'
+      sourceHandle: source
+      target: '1741159428829'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: end
+      id: 1741159428829-source-1741159799007-target
+      source: '1741159428829'
+      sourceHandle: source
+      target: '1741159799007'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 需求
+          max_length: 4096
+          options: []
+          required: true
+          type: paragraph
+          variable: target
+      height: 89
+      id: '1741069960721'
+      position:
+        x: 30
+        y: 421.5
+      positionAbsolute:
+        x: 30
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for searching
+            ja_JP: used for searching
+            pt_BR: used for searching
+            zh_Hans: 用于搜索网页内容
+          label:
+            en_US: Query string
+            ja_JP: Query string
+            pt_BR: Query string
+            zh_Hans: 查询语句
+          llm_description: key words for searching
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          query: ''
+        provider_id: langgenius/google/google
+        provider_name: langgenius/google/google
+        provider_type: builtin
+        selected: false
+        title: 谷歌搜索
+        tool_configurations: {}
+        tool_label: 谷歌搜索
+        tool_name: google_search
+        tool_node_version: '2'
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1741069960721.target#}}'
+        type: tool
+      height: 53
+      id: '1741070282146'
+      position:
+        x: 334
+        y: 421.5
+      positionAbsolute:
+        x: 334
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(json: list) -> dict:\n    return {\n        \"result\":\
+          \ json[0]['organic_results']\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1741070282146'
+          - json
+          variable: json
+      height: 53
+      id: '1741071296129'
+      position:
+        x: 638
+        y: 421.5
+      positionAbsolute:
+        x: 638
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 443
+        is_parallel: true
+        iterator_input_type: array[object]
+        iterator_selector:
+        - '1741071296129'
+        - result
+        output_selector:
+        - '1741141447337'
+        - text
+        output_type: array[string]
+        parallel_nums: 8
+        selected: false
+        start_node_id: 1741071594000start
+        title: 迭代
+        type: iteration
+        width: 1116
+      height: 443
+      id: '1741071594000'
+      position:
+        x: 946.3966624260909
+        y: 421.5
+      positionAbsolute:
+        x: 946.3966624260909
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1116
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1741071594000start
+      parentId: '1741071594000'
+      position:
+        x: 60
+        y: 197.5
+      positionAbsolute:
+        x: 1006.3966624260909
+        y: 619
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "def main(i: int, arr: list) -> dict:\n    return {\n        \"link\"\
+          : str(arr[int(i)]['link'])\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1741071594000'
+        outputs:
+          link:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 1
+        type: code
+        variables:
+        - value_selector:
+          - '1741071594000'
+          - index
+          variable: i
+        - value_selector:
+          - '1741071296129'
+          - result
+          value_type: array[object]
+          variable: arr
+      height: 53
+      id: '1741071711045'
+      parentId: '1741071594000'
+      position:
+        x: 204.71428571428578
+        y: 195
+      positionAbsolute:
+        x: 1151.1109481403766
+        y: 616.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1741071594000'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The URL of the website to scrape and extract data from.
+            ja_JP: The URL of the website to scrape and extract data from.
+            pt_BR: The URL of the website to scrape and extract data from.
+            zh_Hans: 要抓取并提取数据的网站URL。
+          label:
+            en_US: URL to scrape
+            ja_JP: URL to scrape
+            pt_BR: URL to scrape
+            zh_Hans: 要抓取的URL
+          llm_description: The URL of the website that needs to be crawled. This is
+            a required parameter.
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Formats to include in the output. Available options: markdown,
+              html, rawHtml, links, screenshot, extract, screenshot@fullPage'
+            ja_JP: 'Formats to include in the output. Available options: markdown,
+              html, rawHtml, links, screenshot, extract, screenshot@fullPage'
+            pt_BR: 'Formats to include in the output. Available options: markdown,
+              html, rawHtml, links, screenshot, extract, screenshot@fullPage'
+            zh_Hans: '输出中应包含的格式。可以填入: markdown, html, rawHtml, links, screenshot,
+              extract, screenshot@fullPage'
+          label:
+            en_US: Formats
+            ja_JP: Formats
+            pt_BR: Formats
+            zh_Hans: 结果的格式
+          llm_description: ''
+          max: null
+          min: null
+          name: formats
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Only return the main content of the page excluding headers, navs,
+              footers, etc.
+            ja_JP: Only return the main content of the page excluding headers, navs,
+              footers, etc.
+            pt_BR: Only return the main content of the page excluding headers, navs,
+              footers, etc.
+            zh_Hans: 只返回页面的主要内容，不包括头部、导航栏、尾部等。
+          label:
+            en_US: only Main Content
+            ja_JP: only Main Content
+            pt_BR: only Main Content
+            zh_Hans: 仅抓取主要内容
+          llm_description: ''
+          max: null
+          min: null
+          name: onlyMainContent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Only include tags, classes and ids from the page in the final
+              output. Use comma separated values. Example: script, .ad, #footer'
+            ja_JP: 'Only include tags, classes and ids from the page in the final
+              output. Use comma separated values. Example: script, .ad, #footer'
+            pt_BR: 'Only include tags, classes and ids from the page in the final
+              output. Use comma separated values. Example: script, .ad, #footer'
+            zh_Hans: '仅在最终输出中包含HTML页面的这些标签，可以通过标签名、类或ID来设定，使用逗号分隔值。示例：script, .ad,
+              #footer'
+          label:
+            en_US: Include Tags
+            ja_JP: Include Tags
+            pt_BR: Include Tags
+            zh_Hans: 仅抓取这些标签
+          llm_description: ''
+          max: null
+          min: null
+          name: includeTags
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Tags, classes and ids to remove from the page. Use comma separated
+              values. Example: script, .ad, #footer
+
+              '
+            ja_JP: 'Tags, classes and ids to remove from the page. Use comma separated
+              values. Example: script, .ad, #footer
+
+              '
+            pt_BR: 'Tags, classes and ids to remove from the page. Use comma separated
+              values. Example: script, .ad, #footer
+
+              '
+            zh_Hans: '要在最终输出中移除HTML页面的这些标签，可以通过标签名、类或ID来设定，使用逗号分隔值。示例：script, .ad,
+              #footer
+
+              '
+          label:
+            en_US: Exclude Tags
+            ja_JP: Exclude Tags
+            pt_BR: Exclude Tags
+            zh_Hans: 要移除这些标签
+          llm_description: ''
+          max: null
+          min: null
+          name: excludeTags
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Headers to send with the request. Can be used to send cookies,
+              user-agent, etc. Example: {"cookies": "testcookies"}'
+            ja_JP: 'Headers to send with the request. Can be used to send cookies,
+              user-agent, etc. Example: {"cookies": "testcookies"}'
+            pt_BR: 'Headers to send with the request. Can be used to send cookies,
+              user-agent, etc. Example: {"cookies": "testcookies"}'
+            zh_Hans: '随请求发送的头部。可以用来发送cookies、用户代理等。示例：{"cookies": "testcookies"}'
+          label:
+            en_US: headers
+            ja_JP: headers
+            pt_BR: headers
+            zh_Hans: 请求头
+          llm_description: ''
+          max: null
+          min: null
+          name: headers
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Wait x amount of milliseconds for the page to load to fetch content.
+            ja_JP: Wait x amount of milliseconds for the page to load to fetch content.
+            pt_BR: Wait x amount of milliseconds for the page to load to fetch content.
+            zh_Hans: 等待x毫秒以使页面加载并获取内容。
+          label:
+            en_US: wait For
+            ja_JP: wait For
+            pt_BR: wait For
+            zh_Hans: 等待时间
+          llm_description: ''
+          max: null
+          min: 0
+          name: waitFor
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 30000
+          form: form
+          human_description:
+            en_US: Timeout in milliseconds for the request.
+            ja_JP: Timeout in milliseconds for the request.
+            pt_BR: Timeout in milliseconds for the request.
+            zh_Hans: 请求的超时时间（以毫秒为单位）。
+          label:
+            en_US: Timeout
+            ja_JP: Timeout
+            pt_BR: Timeout
+            zh_Hans: Timeout
+          llm_description: ''
+          max: null
+          min: 0
+          name: timeout
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: "The schema for the data to be extracted. Example: {\n    \"type\"\
+              : \"object\",\n    \"properties\": {\"company_mission\": {\"type\":\
+              \ \"string\"}},\n    \"required\": [\"company_mission\"]\n}\n"
+            ja_JP: "The schema for the data to be extracted. Example: {\n    \"type\"\
+              : \"object\",\n    \"properties\": {\"company_mission\": {\"type\":\
+              \ \"string\"}},\n    \"required\": [\"company_mission\"]\n}\n"
+            pt_BR: "The schema for the data to be extracted. Example: {\n    \"type\"\
+              : \"object\",\n    \"properties\": {\"company_mission\": {\"type\":\
+              \ \"string\"}},\n    \"required\": [\"company_mission\"]\n}\n"
+            zh_Hans: "使用该结构去提取，示例：{\n     \"type\": \"object\",\n     \"properties\"\
+              : {\"company_mission\": {\"type\": \"string\"}},\n     \"required\"\
+              : [\"company_mission\"]\n }\n"
+          label:
+            en_US: Extractor Schema
+            ja_JP: Extractor Schema
+            pt_BR: Extractor Schema
+            zh_Hans: 提取时的结构
+          llm_description: ''
+          max: null
+          min: null
+          name: schema
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The system prompt to use for the extraction.
+            ja_JP: The system prompt to use for the extraction.
+            pt_BR: The system prompt to use for the extraction.
+            zh_Hans: 用于提取的系统提示。
+          label:
+            en_US: Extractor System Prompt
+            ja_JP: Extractor System Prompt
+            pt_BR: Extractor System Prompt
+            zh_Hans: 提取时的系统提示词
+          llm_description: ''
+          max: null
+          min: null
+          name: systemPrompt
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The prompt to use for the extraction without a schema.
+            ja_JP: The prompt to use for the extraction without a schema.
+            pt_BR: The prompt to use for the extraction without a schema.
+            zh_Hans: 用于无schema时提取的提示词
+          label:
+            en_US: Extractor Prompt
+            ja_JP: Extractor Prompt
+            pt_BR: Extractor Prompt
+            zh_Hans: 提取时的提示词
+          llm_description: ''
+          max: null
+          min: null
+          name: prompt
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          excludeTags: ''
+          formats: ''
+          headers: ''
+          includeTags: ''
+          onlyMainContent: ''
+          prompt: ''
+          schema: ''
+          systemPrompt: ''
+          timeout: ''
+          url: ''
+          waitFor: ''
+        provider_id: langgenius/firecrawl/firecrawl
+        provider_name: langgenius/firecrawl/firecrawl
+        provider_type: builtin
+        selected: false
+        title: 单页面抓取
+        tool_configurations:
+          excludeTags:
+            type: constant
+            value: null
+          formats:
+            type: constant
+            value: null
+          headers:
+            type: constant
+            value: null
+          includeTags:
+            type: constant
+            value: null
+          onlyMainContent:
+            type: constant
+            value: 1
+          prompt:
+            type: constant
+            value: null
+          schema:
+            type: constant
+            value: null
+          systemPrompt:
+            type: constant
+            value: null
+          timeout:
+            type: constant
+            value: 30000
+          waitFor:
+            type: constant
+            value: 5000
+        tool_label: 单页面抓取
+        tool_name: scrape
+        tool_node_version: '2'
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#1741071711045.link#}}'
+        type: tool
+      height: 323
+      id: '1741082312033'
+      parentId: '1741071594000'
+      position:
+        x: 509.42857142857133
+        y: 83.57142857142856
+      positionAbsolute:
+        x: 1455.8252338546622
+        y: 505.07142857142856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1741071594000'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 1843251e-ed09-4f8d-8c48-147f23b8946c
+          role: system
+          text: 只输出用户需要的内容，不要添加额外的说明
+        - id: eef5b68e-8aca-4b99-b16b-e9137825449d
+          role: user
+          text: '{{#1741082312033.text#}}
+
+            基于上述文本总结与{{#1741069960721.target#}}相关的核心内容，如果与{{#1741069960721.target#}}无关则输出空字符串'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1741141447337'
+      parentId: '1741071594000'
+      position:
+        x: 812
+        y: 175.48428343348962
+      positionAbsolute:
+        x: 1758.3966624260909
+        y: 596.9842834334896
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(arg1: list) -> dict:\n    result = \"\"\n    for i in arg1:\n\
+          \        result += i;\n    return {\n        \"result\": result\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1741071594000'
+          - output
+          variable: arg1
+      height: 53
+      id: '1741143467490'
+      position:
+        x: 2132.933078614961
+        y: 421.5
+      positionAbsolute:
+        x: 2132.933078614961
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: ea3451ed-c2fe-4dd3-a24f-4f7be2179e35
+          role: system
+          text: '这是参考资料
+
+            {{#1741143467490.result#}}
+
+            这是用户的原始问题
+
+            {{#1741069960721.target#}}'
+        - id: 06b364ef-6f69-47e2-b208-708d99072754
+          role: user
+          text: '基于参考资料，列出一份主题为{{#1741069960721.target#}}的综述大纲，结构如下
+
+            #每一章节标题'
+        selected: false
+        title: LLM 1
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1741147077664'
+      position:
+        x: 2422
+        y: 421.5
+      positionAbsolute:
+        x: 2422
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: 根据此处提供的大纲，提取每一章节的标题，放在字符串数组中
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        parameters:
+        - description: 章节标题集合
+          name: subtitles
+          required: false
+          type: array[string]
+        query:
+        - '1741147077664'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: 参数提取器
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1741155088826'
+      position:
+        x: 2726
+        y: 421.5
+      positionAbsolute:
+        x: 2726
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 209
+        is_parallel: true
+        iterator_input_type: array[string]
+        iterator_selector:
+        - '1741155088826'
+        - subtitles
+        output_selector:
+        - '1741155861725'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1741155658950start
+        title: 迭代 1
+        type: iteration
+        width: 508
+      height: 209
+      id: '1741155658950'
+      position:
+        x: 3031.1486983549967
+        y: 421.5
+      positionAbsolute:
+        x: 3031.1486983549967
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 508
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1741155658950start
+      parentId: '1741155658950'
+      position:
+        x: 60
+        y: 80.5
+      positionAbsolute:
+        x: 3091.1486983549967
+        y: 502
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1741155658950'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 5b34b774-ea20-4c87-93fc-d59a45f7db6b
+          role: system
+          text: ''
+        - id: dff51767-a44e-4be6-8019-389103ee3629
+          role: user
+          text: '这是参考资料
+
+            {{#1741143467490.result#}}
+
+
+            这是综述大纲
+
+            {{#1741147077664.text#}}
+
+
+            请你根据上述资料完成{{#1741155658950.item#}}章节内容的撰写'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1741155861725'
+      parentId: '1741155658950'
+      position:
+        x: 204
+        y: 60
+      positionAbsolute:
+        x: 3235.1486983549967
+        y: 481.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Recipient email account
+            ja_JP: Recipient email account
+            pt_BR: Recipient email account
+            zh_Hans: 收件人邮箱账号
+          label:
+            en_US: Recipient email account
+            ja_JP: Recipient email account
+            pt_BR: Recipient email account
+            zh_Hans: 收件人邮箱账号
+          llm_description: Recipient email account
+          max: null
+          min: null
+          name: send_to
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: email subject
+            ja_JP: email subject
+            pt_BR: email subject
+            zh_Hans: 邮件主题
+          label:
+            en_US: email subject
+            ja_JP: email subject
+            pt_BR: email subject
+            zh_Hans: 邮件主题
+          llm_description: email subject
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: email content
+            ja_JP: email content
+            pt_BR: email content
+            zh_Hans: 邮件内容
+          label:
+            en_US: email content
+            ja_JP: email content
+            pt_BR: email content
+            zh_Hans: 邮件内容
+          llm_description: email content
+          max: null
+          min: null
+          name: email_content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          email_content: ''
+          send_to: ''
+          subject: ''
+        provider_id: langgenius/email/email
+        provider_name: langgenius/email/email
+        provider_type: builtin
+        selected: false
+        title: 发送邮件
+        tool_configurations:
+          convert_to_html:
+            type: constant
+            value: false
+        tool_label: 发送邮件
+        tool_name: send_mail
+        tool_node_version: '2'
+        tool_parameters:
+          email_content:
+            type: mixed
+            value: '{{#1755099701102.result#}}'
+          reply_to:
+            type: mixed
+            value: ''
+          send_to:
+            type: mixed
+            value: 151428109@qq.com
+          subject:
+            type: mixed
+            value: 行业调研报告运行：{{#1741069960721.target#}}
+        type: tool
+      height: 89
+      id: '1741159428829'
+      position:
+        x: 3941.460808144114
+        y: 421.5
+      positionAbsolute:
+        x: 3941.460808144114
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1741155658950'
+          - output
+          variable: output
+        selected: false
+        title: 结束
+        type: end
+      height: 89
+      id: '1741159799007'
+      position:
+        x: 4267.286076889057
+        y: 421.5
+      positionAbsolute:
+        x: 4267.286076889057
+        y: 421.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: list) -> dict:\n    result = \"\"\n    for i in arg1:\n\
+          \        result += i;\n    return {\n        \"result\": result\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 3
+        type: code
+        variables:
+        - value_selector:
+          - '1741155658950'
+          - output
+          value_type: array[string]
+          variable: arg1
+      height: 53
+      id: '1755099701102'
+      position:
+        x: 3608.3382851949737
+        y: 421.5
+      positionAbsolute:
+        x: 3608.3382851949737
+        y: 421.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -2881.503002265356
+      y: -75.01532395453407
+      zoom: 0.8705505632961241
